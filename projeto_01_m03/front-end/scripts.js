@@ -21,8 +21,8 @@ let idEdicao = 0;
             <td>${movie.genero}</td>
             <td>${movie.nota}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="editaVaga(${movie.id})">Editar</button>
-                    <button class="btn btn-danger" onclick="deleteVaga(${movie.id})">Deletar</button>
+                    <button class="btn btn-primary" onclick="editaFilme(${movie.id})">Editar</button>
+                    <button class="btn btn-danger" onclick="deleteFilme(${movie.id})">Deletar</button>
                 </td>
             </tr>
         `
@@ -42,15 +42,15 @@ const escolherFilme = async () => {
   const filmes = await response.json();
 
   
-  document.getElementById("filme").insertAdjacentHTML(
+  document.getElementById("movie").insertAdjacentHTML(
     "beforeend",
     `
         <tr>
-            <th scope="row">${filme.id}</th>
-            <td>${filme.nome}</td>
-            <td>${filme.imagem}</td>
-            <td>${filme.genero}</td>
-            <td>${filme.nota}</td>
+            <th scope="row">${movie.id}</th>
+            <td>${movie.nome}</td>
+            <td>${movie.imagem}</td>
+            <td>${movie.genero}</td>
+            <td>${movie.nota}</td>
         </tr>
     `
   );
@@ -77,9 +77,9 @@ const submitForm = async () => {
 
     
     if(modoEdicao) {
-        putFilme(filme);
+        postFilme(filme);
     }else {
-        putFilme(filme);
+        postFilme(filme);
     }
     
 }
